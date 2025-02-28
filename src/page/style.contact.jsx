@@ -1,6 +1,6 @@
 export const textfieldStyle = {
-  input: { color: "#000" },
-  label: { color: "#000" },
+  input: { color: "#FFF" },
+  label: { color: "#FFF" },
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
       borderColor: "#F15726",
@@ -13,12 +13,12 @@ export const textfieldStyle = {
     },
   },
   "& .MuiInputLabel-root": {
-    color: "#000",
+    color: "#FFF",
   },
   "& .MuiInputLabel-root.Mui-focused": {
-    color: "#000",
+    color: "#FFF",
   },
   "& .MuiInputLabel-root:hover": {
-    color: "#000",
+    color: "#FFF",
   },
 };

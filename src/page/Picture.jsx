@@ -6,12 +6,12 @@ import "./style.picture.css";
 export default function Picture() {
   return (
     <Box
-      id="contact"
+      id="picture"
       sx={{
         display: "flex",
         width: "100%",
         minHeight: "100vh",
-        backgroundColor: "#FFF",
+        backgroundColor: "#121212",
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",

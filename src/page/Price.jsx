@@ -11,7 +11,7 @@ export default function Price({ setPrice }) {
         display: "flex",
         width: "100%",
         minHeight: "100vh",
-        backgroundColor: "#FFF",
+        backgroundColor: "#121212",
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
@@ -23,6 +23,7 @@ export default function Price({ setPrice }) {
           mb: { xs: 0, md: 5 },
           fontWeight: "bold",
           textAlign: { xs: "center", md: "none" },
+          color: "#FFF",
         }}
         variant="h4"
       >
@@ -44,7 +45,7 @@ export default function Price({ setPrice }) {
             >
               Classique
             </Typography>
-            <Typography sx={{ mt: 0 }} variant="body2">
+            <Typography sx={{ mt: 0, color: "#FFF" }} variant="body2">
               Une séance classique accessible à tous et pour tous !
             </Typography>
             <Box sx={BoxPriceEuro}>
@@ -59,30 +60,30 @@ export default function Price({ setPrice }) {
                 80,00 €
               </Typography>
             </Box>
-            <Typography sx={{ mt: 0.5 }} variant="body2">
+            <Typography sx={{ mt: 0.5, color: "#FFF" }} variant="body2">
               Option supplémentaire : 20,00 € / photo retouchée
             </Typography>
             <Box sx={{ display: "flex", alignItems: "center", mt: 3 }}>
               <CheckIcon sx={{ color: "green" }} />
-              <Typography sx={{ ml: 1 }} variant="body1">
+              <Typography sx={{ ml: 1, color: "#FFF" }} variant="body1">
                 Durée du shooting 2h30
               </Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", mt: 1 }}>
               <CheckIcon sx={{ color: "green" }} />
-              <Typography sx={{ ml: 1 }} variant="body1">
+              <Typography sx={{ ml: 1, color: "#FFF" }} variant="body1">
                 Lieux de votre choix ou lieux choisit par la production
               </Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", mt: 1 }}>
               <CheckIcon sx={{ color: "green" }} />
-              <Typography sx={{ ml: 1 }} variant="body1">
+              <Typography sx={{ ml: 1, color: "#FFF" }} variant="body1">
                 15 à 20 photos retouchées
               </Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", mt: 1 }}>
               <CheckIcon sx={{ color: "green" }} />
-              <Typography sx={{ ml: 1 }} variant="body1">
+              <Typography sx={{ ml: 1, color: "#FFF" }} variant="body1">
                 Accès aux photos non retouchées
               </Typography>
             </Box>
@@ -114,43 +115,51 @@ export default function Price({ setPrice }) {
               mt: 2,
             }}
           >
-            <Typography sx={{ fontWeight: "bold" }} variant="h4">
+            <Typography
+              sx={{ fontWeight: "bold", color: "#e1410f" }}
+              variant="h4"
+            >
               Etudiant
             </Typography>
-            <Typography sx={{ mt: 0 }} variant="body2">
+            <Typography sx={{ mt: 0, color: "#FFF" }} variant="body2">
               Une séance pour tous les étudiants de -18 ans !
             </Typography>
             <Box sx={BoxPriceEuro}>
               <Typography
-                sx={{ display: "flex", fontWeight: "bold", fontSize: "32px" }}
+                sx={{
+                  display: "flex",
+                  fontWeight: "bold",
+                  fontSize: "32px",
+                  color: "#e1410f",
+                }}
               >
                 45,00 €
               </Typography>
             </Box>
-            <Typography sx={{ mt: 0.5 }} variant="body2">
+            <Typography sx={{ mt: 0.5, color: "#FFF" }} variant="body2">
               Option supplémentaire : 20,00 € / photo retouchée
             </Typography>
             <Box sx={{ display: "flex", alignItems: "center", mt: 3 }}>
               <CheckIcon sx={{ color: "green" }} />
-              <Typography sx={{ ml: 1 }} variant="body1">
+              <Typography sx={{ ml: 1, color: "#FFF" }} variant="body1">
                 Durée du shooting 2h30
               </Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", mt: 1 }}>
               <CheckIcon sx={{ color: "green" }} />
-              <Typography sx={{ ml: 1 }} variant="body1">
+              <Typography sx={{ ml: 1, color: "#FFF" }} variant="body1">
                 Lieux de votre choix ou lieux choisit par la production
               </Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", mt: 1 }}>
               <CheckIcon sx={{ color: "green" }} />
-              <Typography sx={{ ml: 1 }} variant="body1">
+              <Typography sx={{ ml: 1, color: "#FFF" }} variant="body1">
                 16 à 18 photos retouchées
               </Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", mt: 1 }}>
               <CheckIcon sx={{ color: "green" }} />
-              <Typography sx={{ ml: 1 }} variant="body1">
+              <Typography sx={{ ml: 1, color: "#FFF" }} variant="body1">
                 Accès aux photos non retouchées
               </Typography>
             </Box>
@@ -188,7 +197,7 @@ export default function Price({ setPrice }) {
             >
               Anniversaire
             </Typography>
-            <Typography sx={{ mt: 0 }} variant="body2">
+            <Typography sx={{ mt: 0, color: "#FFF" }} variant="body2">
               Une séance festive dont vous garderez les souvenirs !
             </Typography>
             <Box sx={BoxPriceEuro}>
@@ -203,30 +212,30 @@ export default function Price({ setPrice }) {
                 90,00 €
               </Typography>
             </Box>
-            <Typography sx={{ mt: 0.5 }} variant="body2">
+            <Typography sx={{ mt: 0.5, color: "#FFF" }} variant="body2">
               Option supplémentaire : 20,00 € / photo retouchée
             </Typography>
             <Box sx={{ display: "flex", alignItems: "center", mt: 3 }}>
               <CheckIcon sx={{ color: "green" }} />
-              <Typography sx={{ ml: 1 }} variant="body1">
+              <Typography sx={{ ml: 1, color: "#FFF" }} variant="body1">
                 Durée du shooting 2h30
               </Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", mt: 1 }}>
               <CheckIcon sx={{ color: "green" }} />
-              <Typography sx={{ ml: 1 }} variant="body1">
+              <Typography sx={{ ml: 1, color: "#FFF" }} variant="body1">
                 Lieux de votre choix ou lieux choisit par la production
               </Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", mt: 1 }}>
               <CheckIcon sx={{ color: "green" }} />
-              <Typography sx={{ ml: 1 }} variant="body1">
+              <Typography sx={{ ml: 1, color: "#FFF" }} variant="body1">
                 25 à 30 photos retouchées
               </Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", mt: 1 }}>
               <CheckIcon sx={{ color: "green" }} />
-              <Typography sx={{ ml: 1 }} variant="body1">
+              <Typography sx={{ ml: 1, color: "#FFF" }} variant="body1">
                 Accès aux photos non retouchées
               </Typography>
             </Box>
@@ -258,44 +267,52 @@ export default function Price({ setPrice }) {
               mt: 2,
             }}
           >
-            <Typography sx={{ fontWeight: "bold" }} variant="h4">
+            <Typography
+              sx={{ fontWeight: "bold", color: "#e1410f" }}
+              variant="h4"
+            >
               Famille
             </Typography>
-            <Typography sx={{ mt: 0.5 }} variant="body2">
+            <Typography sx={{ mt: 0, color: "#FFF" }} variant="body2">
               Une séance familliale pour photographier des moments inoubliables
               !
             </Typography>
             <Box sx={BoxPriceEuro}>
               <Typography
-                sx={{ display: "flex", fontWeight: "bold", fontSize: "32px" }}
+                sx={{
+                  display: "flex",
+                  fontWeight: "bold",
+                  fontSize: "32px",
+                  color: "#e1410f",
+                }}
               >
                 140,00 €
               </Typography>
             </Box>
-            <Typography sx={{ mt: 0 }} variant="body2">
+            <Typography sx={{ mt: 0.5, color: "#FFF" }} variant="body2">
               Option supplémentaire : 20,00 € / photo retouchée
             </Typography>
             <Box sx={{ display: "flex", alignItems: "center", mt: 3 }}>
               <CheckIcon sx={{ color: "green" }} />
-              <Typography sx={{ ml: 1 }} variant="body1">
+              <Typography sx={{ ml: 1, color: "#FFF" }} variant="body1">
                 Durée du shooting 2h30
               </Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", mt: 1 }}>
               <CheckIcon sx={{ color: "green" }} />
-              <Typography sx={{ ml: 1 }} variant="body1">
+              <Typography sx={{ ml: 1, color: "#FFF" }} variant="body1">
                 Lieux de votre choix ou lieux choisit par la production
               </Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", mt: 1 }}>
               <CheckIcon sx={{ color: "green" }} />
-              <Typography sx={{ ml: 1 }} variant="body1">
+              <Typography sx={{ ml: 1, color: "#FFF" }} variant="body1">
                 30 à 35 photos retouchées
               </Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", mt: 1 }}>
               <CheckIcon sx={{ color: "green" }} />
-              <Typography sx={{ ml: 1 }} variant="body1">
+              <Typography sx={{ ml: 1, color: "#FFF" }} variant="body1">
                 Accès aux photos non retouchées
               </Typography>
             </Box>

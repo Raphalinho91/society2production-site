@@ -53,7 +53,7 @@ export default function Contact({ price }) {
         display: "flex",
         width: "100%",
         minHeight: "100vh",
-        backgroundColor: "#FFF",
+        backgroundColor: "#121212",
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
@@ -65,6 +65,7 @@ export default function Contact({ price }) {
           mb: 5,
           fontWeight: "bold",
           textAlign: { xs: "center", md: "none" },
+          color: "#FFF",
         }}
         variant="h4"
       >
