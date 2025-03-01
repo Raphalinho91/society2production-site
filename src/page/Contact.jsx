@@ -61,11 +61,12 @@ export default function Contact({ price }) {
     >
       <Typography
         sx={{
-          mt: { xs: 2, md: 0 },
+          mt: { xs: 6, md: 0 },
           mb: 5,
           fontWeight: "bold",
           textAlign: { xs: "center", md: "none" },
           color: "#FFF",
+          width: { xs: "310px", md: "100%" },
         }}
         variant="h4"
       >
@@ -94,10 +95,12 @@ export default function Contact({ price }) {
             component="img"
             alt="cameraPhoto"
             src={CameraPhoto}
+            loading="lazy"
             sx={{
               display: "flex",
               width: { xs: "90%", md: "80%" },
-              height: "100%",
+              height: "auto",
+              objectFit: "cover",
             }}
           />
         </Box>
@@ -128,7 +131,10 @@ export default function Contact({ price }) {
             label="Lieux du shooting"
             variant="outlined"
             type="text"
-            sx={{ width: { xs: "90%", md: "80%" }, ...textfieldStyle }}
+            sx={{
+              width: { xs: "90%", md: "80%" },
+              ...textfieldStyle,
+            }}
           />
           <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="fr">
             <DateTimePicker
@@ -142,11 +148,12 @@ export default function Contact({ price }) {
             variant="outlined"
             sx={{ width: { xs: "90%", md: "80%" }, ...textfieldStyle }}
           >
-            <InputLabel>Tarif de shooting</InputLabel>
+            <InputLabel id="shooting-label">Tarif du shooting</InputLabel>
             <Select
-              value={shootingType}
+              labelId="shooting-label"
+              value={shootingType || ""}
               onChange={(e) => setShootingType(e.target.value)}
-              label="Tarif du shooting"
+              label="Tarif de shooting"
             >
               <MenuItem value="essentiel">Essentiel</MenuItem>
               <MenuItem value="etudiant">Etudiant</MenuItem>
@@ -155,6 +162,7 @@ export default function Contact({ price }) {
               <MenuItem value="personnalise">Personnalisé</MenuItem>
             </Select>
           </FormControl>
+
           <Typography
             sx={{
               display: shootingType ? "flex" : "none",
@@ -170,7 +178,10 @@ export default function Contact({ price }) {
             type="text"
             multiline
             rows={4}
-            sx={{ width: { xs: "90%", md: "80%" }, ...textfieldStyle }}
+            sx={{
+              width: { xs: "90%", md: "80%" },
+              ...textfieldStyle,
+            }}
           />
           <Button
             variant="contained"
@@ -182,7 +193,8 @@ export default function Contact({ price }) {
             sx={{
               display: "flex",
               width: { xs: "90%", md: "80%" },
-              mb: { xs: 4, md: 0 },
+              mb: { xs: 6, md: 0 },
+              color: "#FFF",
             }}
             variant="body2"
           >

@@ -98,11 +98,12 @@ export default function AboutMe2() {
                 animate={{ x: 0, scale: 1, opacity: 1 }}
                 exit={{ x: -direction * 100, scale: 1.2, opacity: 0 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
+                loading="lazy"
                 style={{
                   position: "absolute",
                   width: "100%",
-                  height: "100%",
-                  objectFit: "contain",
+                  height: "auto",
+                  objectFit: "cover",
                   borderRadius: "20px",
                 }}
               />
@@ -165,11 +166,12 @@ export default function AboutMe2() {
                       component="img"
                       alt={`Secondary Image ${offset}`}
                       src={getNextImage(offset)}
+                      loading="lazy"
                       sx={{
                         display: "flex",
                         position: "absolute",
                         width: "100%",
-                        height: "100%",
+                        height: "auto",
                         objectFit: "cover",
                         zIndex: 0,
                         borderRadius: "20px",
