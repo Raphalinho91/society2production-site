@@ -75,7 +75,6 @@ h3 span::before {
   animation-delay: calc(
     (20s / var(--quantity)) * (var(--position) - 1)
   ) !important;
-  will-change: transform;
 }
 
 .slider .list .item img {

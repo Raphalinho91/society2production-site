@@ -60,8 +60,7 @@ export default function Accueil() {
               <img
                 src={image}
                 alt="photo"
-                loading="lazy"
-                style={{ width: "100%", height: "auto", objectFit: "contain" }}
+                style={{ width: "100%", height: "auto", objectFit: "cover" }}
               />
             </div>
           ))}
@@ -118,8 +117,7 @@ export default function Accueil() {
               <img
                 src={image}
                 alt="photo"
-                loading="lazy"
-                style={{ width: "100%", height: "auto", objectFit: "contain" }}
+                style={{ width: "100%", height: "auto", objectFit: "cover" }}
               />
             </div>
           ))}
