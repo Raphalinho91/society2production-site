@@ -2,12 +2,12 @@ import { Box, Button, Typography } from "@mui/material";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { useState } from "react";
-import IMAGE1 from "../assets/image1.jpeg";
-import IMAGE2 from "../assets/image2.jpeg";
-import IMAGE3 from "../assets/image3.jpeg";
-import IMAGE4 from "../assets/image8.jpeg";
-import IMAGE5 from "../assets/image5.jpeg";
-import IMAGE6 from "../assets/image6.jpeg";
+import IMAGE1 from "../assets/image1.webp";
+import IMAGE2 from "../assets/image2.webp";
+import IMAGE3 from "../assets/image3.webp";
+import IMAGE4 from "../assets/image8.webp";
+import IMAGE5 from "../assets/image5.webp";
+import IMAGE6 from "../assets/image6.webp";
 import { AnimatePresence, motion } from "framer-motion";
 
 const images = [IMAGE1, IMAGE2, IMAGE3, IMAGE4, IMAGE5, IMAGE6];

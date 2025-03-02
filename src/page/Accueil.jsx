@@ -1,20 +1,21 @@
+/* eslint-disable react/no-unknown-property */
 import { Box, Typography } from "@mui/material";
 import "./style.accueil.css";
-import IMAGE1 from "../assets/image1.jpeg";
-import IMAGE2 from "../assets/image2.jpeg";
-import IMAGE3 from "../assets/image3.jpeg";
-import IMAGE4 from "../assets/image4.jpeg";
-import IMAGE5 from "../assets/image5.jpeg";
-import IMAGE6 from "../assets/image6.jpeg";
-import IMAGE7 from "../assets/image7.jpeg";
-import IMAGE8 from "../assets/image8.jpeg";
-import IMAGE9 from "../assets/image9.jpeg";
-import IMAGE10 from "../assets/image10.jpeg";
-import IMAGE11 from "../assets/image11.jpeg";
-import IMAGE12 from "../assets/image12.jpeg";
-import IMAGE13 from "../assets/image13.jpeg";
-import IMAGE14 from "../assets/image14.jpeg";
-import IMAGE15 from "../assets/image15.jpeg";
+import IMAGE1 from "../photoRedimensions/image1.jpeg";
+import IMAGE2 from "../photoRedimensions/image2.jpeg";
+import IMAGE3 from "../photoRedimensions/image3.jpeg";
+import IMAGE4 from "../photoRedimensions/image4.jpeg";
+import IMAGE5 from "../photoRedimensions/image5.jpeg";
+import IMAGE6 from "../photoRedimensions/image6.jpeg";
+import IMAGE7 from "../photoRedimensions/image7.jpeg";
+import IMAGE8 from "../photoRedimensions/image8.jpeg";
+import IMAGE9 from "../photoRedimensions/image9.jpeg";
+import IMAGE10 from "../photoRedimensions/image10.jpeg";
+import IMAGE11 from "../photoRedimensions/image11.jpeg";
+import IMAGE12 from "../photoRedimensions/image12.jpeg";
+import IMAGE13 from "../photoRedimensions/image13.jpeg";
+import IMAGE14 from "../photoRedimensions/image14.jpeg";
+import IMAGE15 from "../photoRedimensions/image15.jpeg";
 
 const images = [
   IMAGE1,
@@ -46,49 +47,81 @@ export default function Accueil() {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        position: "relative",
-        overflow: "hidden",
       }}
     >
-      <Typography
+      <div
+        className="slider"
+        reverse="true"
+        style={{ "--width": "167px", "--height": "250px", "--quantity": 15 }}
+      >
+        <div className="list">
+          {images.map((image, i) => (
+            <div key={i} className="item" style={{ "--position": i + 1 }}>
+              <img
+                src={image}
+                alt="photo"
+                loading="lazy"
+                style={{ width: "100%", height: "auto", objectFit: "contain" }}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      <Box
+        className="title"
+        reverse="true"
         sx={{
-          fontWeight: "bold",
-          color: "#FFF",
-          textTransform: "uppercase",
-          letterSpacing: 5,
-          fontSize: { xs: 25, sm: 35, md: 40 },
-          zIndex: 1000,
+          width: "100%",
+          height: "250px",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          flexDirection: "column",
         }}
       >
-        society2production
-      </Typography>
-      <h3>
-        <span style={{ "--i": 1 }} data-text="Shooting">
-          Shooting
-        </span>
-        <span style={{ "--i": 2 }} data-text="Photographie">
-          Photographie
-        </span>
-        <span style={{ "--i": 3 }} data-text="Montage">
-          Montage
-        </span>
-        <span style={{ "--i": 4 }} data-text="Mannequinat">
-          Mannequinat
-        </span>
-      </h3>
-      <div className="container">
-        <div className="gallery">
+        <Typography
+          sx={{
+            mt: 6,
+            fontWeight: "bold",
+            color: "#FFF",
+            textTransform: "uppercase",
+            letterSpacing: 5,
+            fontSize: { xs: 25, sm: 35, md: 40 },
+            zIndex: 1000,
+          }}
+        >
+          society2production
+        </Typography>
+        <h3>
+          <span style={{ "--i": 1 }} data-text="Shooting">
+            Shooting
+          </span>
+          <span style={{ "--i": 2 }} data-text="Photographie">
+            Photographie
+          </span>
+          <span style={{ "--i": 3 }} data-text="Montage">
+            Montage
+          </span>
+          <span style={{ "--i": 4 }} data-text="Mannequinat">
+            Mannequinat
+          </span>
+        </h3>{" "}
+      </Box>
+      <div
+        className="slider"
+        reverse="true"
+        style={{ "--width": "167px", "--height": "250px", "--quantity": 15 }}
+      >
+        <div className="list">
           {images.map((image, i) => (
-            <div
-              key={i}
-              className={`block block-${i + 1}`}
-              loading="lazy"
-              style={{
-                backgroundImage: `url(${image})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            ></div>
+            <div key={i} className="item" style={{ "--position": i + 1 }}>
+              <img
+                src={image}
+                alt="photo"
+                loading="lazy"
+                style={{ width: "100%", height: "auto", objectFit: "contain" }}
+              />
+            </div>
           ))}
         </div>
       </div>
