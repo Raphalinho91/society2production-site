@@ -4,7 +4,7 @@ import LANDSCAPE1 from "../assets/landscape1.jpeg";
 import LANDSCAPE2 from "../assets/landscape2.jpeg";
 import LANDSCAPE3 from "../assets/landscape3.jpeg";
 import LANDSCAPE4 from "../assets/landscape4.jpeg";
-import "./style.Accueil.css";
+import "./style.accueil.css";
 
 const text = ["Shooting", "Photographie", "Montage", "Mannequinat"];
 
