@@ -14,7 +14,6 @@ export default function Home() {
       <Divider variant="middle" sx={{ backgroundColor: "#FFF" }} />
       <AboutMe />
       <Divider variant="middle" sx={{ backgroundColor: "#FFF" }} />
-      <Divider variant="middle" sx={{ backgroundColor: "#FFF" }} />
       <Price setPrice={setPrice} />
       <Divider variant="middle" sx={{ backgroundColor: "#FFF" }} />
       <Contact price={price} />

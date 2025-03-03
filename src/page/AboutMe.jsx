@@ -62,11 +62,11 @@ export default function AboutMe() {
 
   return (
     <Box
-      id="test2"
+      id="aboutMe"
       sx={{
         display: "flex",
         width: "100%",
-        minHeight: "100vh",
+        minHeight: { xs: "100vh", sm: "95vh" },
         backgroundColor: "#121212",
         color: "#FFF",
         position: "relative",
@@ -128,7 +128,7 @@ export default function AboutMe() {
         sx={{
           display: "flex",
           position: "absolute",
-          bottom: 20,
+          bottom: { xs: 30, sm: 20 },
           gap: 2,
           zIndex: 1000,
         }}

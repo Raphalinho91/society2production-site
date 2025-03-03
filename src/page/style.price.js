@@ -34,6 +34,6 @@ export const BoxPriceEuro = {
   backgroundColor: "#fde6de",
   borderRadius: "6px",
   border: "1px solid #C4C4C4",
-  justifyContent: "left",
+  justifyContent: "center",
   alignItems: "center",
 };
