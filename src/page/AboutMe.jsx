@@ -1,209 +1,150 @@
 import { Box, Button, Typography } from "@mui/material";
+import { motion } from "framer-motion";
+import { useState } from "react";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import { useState } from "react";
 import IMAGE1 from "../assets/image1.webp";
 import IMAGE2 from "../assets/image2.webp";
 import IMAGE3 from "../assets/image3.webp";
-import IMAGE4 from "../assets/image8.webp";
+import IMAGE4 from "../assets/image4.webp";
 import IMAGE5 from "../assets/image5.webp";
 import IMAGE6 from "../assets/image6.webp";
-import { AnimatePresence, motion } from "framer-motion";
+import IMAGE7 from "../assets/image7.jpeg";
+const images = [IMAGE1, IMAGE2, IMAGE3, IMAGE4, IMAGE5, IMAGE6, IMAGE7];
+const texts = [
+  "2SOCIETY, c’est bien plus qu’une équipe, c’est une famille unie par une vision commune.",
+  "Ce qui nous rassemble, ce n’est pas seulement notre passion pour la création, mais aussi notre volonté d’évoluer ensemble.",
+  "Malgré nos inspirations et nos styles différents, nous avançons dans la même direction, guidés par deux principes fondamentaux : l’unité et l’excellence.",
+  "Notre objectif est simple : devenir la meilleure version de nous-mêmes. Chaque jour, nous cherchons à nous améliorer, à apprendre les uns des autres et à acquérir de nouvelles compétences pour enrichir notre travail.",
+  "L’échange et le partage sont au cœur de notre démarche, car nous croyons que c’est en restant ouverts et curieux que nous pouvons offrir un contenu toujours plus qualitatif.",
+  "Aujourd’hui, nous nous concentrons principalement sur la photographie, un domaine qui nous permet d’exprimer notre créativité et de raconter des histoires à travers l’image.",
+  "Mais ce n’est qu’un début. Notre ambition ne connaît pas de limites, et nous continuerons à évoluer pour vous proposer toujours plus et toujours mieux.",
+];
+const positions = [
+  "center",
+  "left2",
+  "left1",
+  "left",
+  "right",
+  "right1",
+  "right2",
+];
 
-const images = [IMAGE1, IMAGE2, IMAGE3, IMAGE4, IMAGE5, IMAGE6];
+const imageVariants = {
+  center: { x: "0%", scale: 1, zIndex: 5 },
+  left2: { x: "-50%", scale: 0.9, zIndex: 3 },
+  left1: { x: "-90%", scale: 0.7, zIndex: 2 },
+  left: { x: "-120%", scale: 0.5, zIndex: 1 },
+  right: { x: "120%", scale: 0.5, zIndex: 1 },
+  right1: { x: "90%", scale: 0.7, zIndex: 2 },
+  right2: { x: "50%", scale: 0.9, zIndex: 3 },
+};
 
-export default function AboutMe2() {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
-
-  const handleNext = () => {
-    setDirection(1);
-    setSelectedIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
+export default function AboutMe() {
+  const [positionIndex, setPositionIndex] = useState([0, 1, 2, 3, 4, 5, 6]);
+  const [textIndex, setTextIndex] = useState(0);
 
   const handlePrev = () => {
-    setDirection(-1);
-    setSelectedIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
+    setPositionIndex((prevIndex) => {
+      const newIndex = prevIndex.map((index) => (index - 1 + 7) % 7);
+      return newIndex;
+    });
+    setTextIndex((prev) => (prev - 1 + texts.length) % texts.length);
   };
 
-  const handleImageClick = (index) => {
-    setSelectedIndex(index);
-  };
-
-  const getNextImage = (offset) => {
-    return images[(selectedIndex + offset) % images.length];
+  const handleNext = () => {
+    setPositionIndex((prevIndex) => {
+      const newIndex = prevIndex.map((index) => (index + 1) % 7);
+      return newIndex;
+    });
+    setTextIndex((prev) => (prev + 1) % texts.length);
   };
 
   return (
     <Box
-      id="aboutMe"
+      id="test2"
       sx={{
         display: "flex",
         width: "100%",
         minHeight: "100vh",
         backgroundColor: "#121212",
+        color: "#FFF",
         position: "relative",
-        overflow: "hidden",
-        justifyContent: "center",
+        overflowX: "hidden",
         alignItems: "center",
-        mb: 2,
-        mt: 2,
+        justifyContent: "flex-start",
+        flexDirection: "column",
+        mt: 4,
       }}
     >
       <Box
         sx={{
-          display: "flex",
+          position: "relative",
           width: "100%",
-          height: "100%",
-          backgroundColor: "#121212",
-          justifyContent: "center",
+          height: "60vh",
+          display: "flex",
           alignItems: "center",
-          flexDirection: "column",
+          justifyContent: "center",
         }}
       >
-        <Box
-          id="slider"
-          className="slider"
-          sx={{
-            display: "flex",
-            width: "100%",
-            height: "100%",
-            justifyContent: "flex-start",
-            alignItems: "center",
-            pl: { xs: 2, sm: 10 },
-          }}
-        >
-          <Box
-            id="itemSlide"
-            className="itemSlide"
-            sx={{
-              display: "flex",
-              minWidth: { xs: "340px", sm: "400px", md: "533px" },
-              minHeight: { xs: "510px", sm: "600px", md: "800px" },
-              justifyContent: "center",
-              alignItems: "center",
-              position: "relative",
-              borderRadius: "20px",
-              overflow: "hidden",
-            }}
-          >
-            <AnimatePresence exitBeforeEnter>
-              <motion.img
-                key={selectedIndex}
-                src={images[selectedIndex]}
-                alt="Main Image"
-                initial={{ x: direction * 100, scale: 0.8, opacity: 0 }}
-                animate={{ x: 0, scale: 1, opacity: 1 }}
-                exit={{ x: -direction * 100, scale: 1.2, opacity: 0 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                loading="lazy"
-                style={{
-                  position: "absolute",
-                  width: "100%",
-                  height: "auto",
-                  objectFit: "cover",
-                  borderRadius: "20px",
-                }}
-              />
-            </AnimatePresence>
-            <Box
-              sx={{
-                display: "block",
-                position: "absolute",
-                bottom: "5%",
-                left: "5%",
-                flexDirection: "column",
-                textAlign: "left",
-                width: "310px",
-                zIndex: 1,
-              }}
-            >
-              <Typography sx={{ color: "#FFF", fontWeight: "bold" }}>
-                society2production
-              </Typography>
-              <Typography sx={{ color: "#FFF", mt: 2 }}>
-                Des photos portraits pour instagram, pour le perso ou pour le
-                pro. Il y en à pour tous, on attend que vous !
-              </Typography>
-            </Box>
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              gap: 4,
-              overflow: "hidden",
+        {images.map((image, index) => (
+          <motion.img
+            key={index}
+            src={image}
+            alt={`Image ${index + 1}`}
+            style={{
+              borderRadius: "12px",
+              width: "340px",
+              height: "510px",
               position: "absolute",
-              left: { xs: "300px", sm: "420px", md: "550px" },
             }}
-          >
-            <AnimatePresence exitBeforeEnter>
-              {[1, 2, 3].map((offset) => (
-                <motion.div
-                  key={offset}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -50 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      width: { xs: "120px", sm: "160px", md: "200px" },
-                      height: { xs: "180px", sm: "240px", md: "300px" },
-                      justifyContent: "center",
-                      alignItems: "center",
-                      position: "relative",
-                      borderRadius: "20px",
-                      cursor: "pointer",
-                    }}
-                    onClick={() =>
-                      handleImageClick((selectedIndex + offset) % images.length)
-                    }
-                  >
-                    <Box
-                      component="img"
-                      alt={`Secondary Image ${offset}`}
-                      src={getNextImage(offset)}
-                      loading="lazy"
-                      sx={{
-                        display: "flex",
-                        position: "absolute",
-                        width: "100%",
-                        height: "auto",
-                        objectFit: "cover",
-                        zIndex: 0,
-                        borderRadius: "20px",
-                      }}
-                    />
-                  </Box>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </Box>
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            mt: { xs: 15, sm: 2 },
-            mb: 2,
-            gap: 2,
-          }}
+            initial="center"
+            animate={positions[positionIndex[index]]}
+            variants={imageVariants}
+            transition={{ duration: 0.5 }}
+          />
+        ))}
+      </Box>
+
+      <motion.div
+        key={textIndex}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.5 }}
+        style={{
+          textAlign: "center",
+          maxWidth: "500px",
+          marginTop: "40px",
+          marginBottom: "40px",
+        }}
+      >
+        <Typography variant="h6" sx={{ pl: 2, pr: 2 }}>
+          {texts[textIndex]}
+        </Typography>
+      </motion.div>
+
+      <Box
+        sx={{
+          display: "flex",
+          position: "absolute",
+          bottom: 20,
+          gap: 2,
+          zIndex: 1000,
+        }}
+      >
+        <Button
+          sx={{ backgroundColor: "transparent", color: "#FFF" }}
+          onClick={handlePrev}
         >
-          <Button
-            sx={{ backgroundColor: "transparent", color: "#FFF" }}
-            onClick={handlePrev}
-          >
-            <KeyboardArrowLeftIcon sx={{ fontSize: 42 }} />
-          </Button>
-          <Button
-            sx={{ backgroundColor: "transparent", color: "#FFF" }}
-            onClick={handleNext}
-          >
-            <KeyboardArrowRightIcon sx={{ fontSize: 42 }} />
-          </Button>
-        </Box>
+          <KeyboardArrowLeftIcon sx={{ fontSize: 42 }} />
+        </Button>
+        <Button
+          sx={{ backgroundColor: "transparent", color: "#FFF" }}
+          onClick={handleNext}
+        >
+          <KeyboardArrowRightIcon sx={{ fontSize: 42 }} />
+        </Button>
       </Box>
     </Box>
   );
