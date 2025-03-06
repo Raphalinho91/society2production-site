@@ -1,12 +1,25 @@
 import { useEffect, useRef } from "react";
 import { Box, Button } from "@mui/material";
-import LANDSCAPE1 from "../assets/landscape1.jpeg";
-import LANDSCAPE2 from "../assets/landscape2.jpeg";
-import LANDSCAPE3 from "../assets/landscape3.jpeg";
-import LANDSCAPE4 from "../assets/landscape4.jpeg";
+import LANDSCAPE1 from "../image-landscape/landscape2.jpeg";
+import LANDSCAPE2 from "../image-landscape/landscape3.jpeg";
+import LANDSCAPE3 from "../image-landscape/landscape4.jpeg";
+import LANDSCAPE4 from "../image-landscape/landscape5.jpeg";
+import LANDSCAPE5 from "../image-landscape/landscape6.jpeg";
+import LANDSCAPE6 from "../image-landscape/landscape8.jpeg";
+import LANDSCAPE7 from "../image-landscape/landscape10.jpeg";
+import LANDSCAPE8 from "../image-landscape/landscape7.jpeg";
 import "./style.accueil.css";
 
-const text = ["Shooting", "Photographie", "Montage", "Mannequinat"];
+const text = [
+  "Shooting",
+  "Photographie",
+  "Montage",
+  "Mannequinat",
+  "Shooting",
+  "Photographie",
+  "Montage",
+  "Mannequinat",
+];
 
 export default function Accueil() {
   const sliderRef = useRef(null);
@@ -129,20 +142,27 @@ export default function Accueil() {
       </Box>
       <div className="containerLandscape">
         <div className="sliderLandscape" ref={sliderRef}>
-          {[LANDSCAPE1, LANDSCAPE2, LANDSCAPE3, LANDSCAPE4].map(
-            (img, index) => (
-              <div
-                key={index}
-                className="itemLandscape"
-                style={{ backgroundImage: `url(${img})` }}
-              >
-                <div className="contentLandscape">
-                  <h2 className="titleAccueil">SOCIETY2PRODUCTION</h2>
-                  <p className="skillsAccueil">{text[index]}</p>
-                </div>
+          {[
+            LANDSCAPE8,
+            LANDSCAPE1,
+            LANDSCAPE2,
+            LANDSCAPE3,
+            LANDSCAPE4,
+            LANDSCAPE5,
+            LANDSCAPE6,
+            LANDSCAPE7,
+          ].map((img, index) => (
+            <div
+              key={index}
+              className="itemLandscape"
+              style={{ backgroundImage: `url(${img})` }}
+            >
+              <div className="contentLandscape">
+                <h2 className="titleAccueil">SOCIETY2PRODUCTION</h2>
+                <p className="skillsAccueil">{text[index]}</p>
               </div>
-            )
-          )}
+            </div>
+          ))}
         </div>
         <div className="buttonsLandscape">
           <span className="prevLandscape" ref={prevRef}></span>

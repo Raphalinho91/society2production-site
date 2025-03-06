@@ -3,13 +3,13 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import IMAGE1 from "../image/image1.jpeg";
-import IMAGE2 from "../image/image2.jpeg";
-import IMAGE3 from "../image/image3.jpeg";
-import IMAGE4 from "../image/image4.jpeg";
-import IMAGE5 from "../image/image5.jpeg";
-import IMAGE6 from "../image/image6.jpeg";
-import IMAGE7 from "../image/image7.jpeg";
+import IMAGE1 from "../image-portrait/image1.jpeg";
+import IMAGE2 from "../image-portrait/image2.jpeg";
+import IMAGE3 from "../image-portrait/image3.jpeg";
+import IMAGE4 from "../image-portrait/image4.jpeg";
+import IMAGE5 from "../image-portrait/image5.jpeg";
+import IMAGE6 from "../image-portrait/image6.jpeg";
+import IMAGE7 from "../image-portrait/image7.jpeg";
 const images = [IMAGE1, IMAGE2, IMAGE3, IMAGE4, IMAGE5, IMAGE6, IMAGE7];
 const texts = [
   "2SOCIETY, c’est bien plus qu’une équipe, c’est une famille unie par une vision commune.",
