@@ -134,12 +134,14 @@ export default function AboutMe() {
         }}
       >
         <Button
+          id="prevButton"
           sx={{ backgroundColor: "transparent", color: "#FFF" }}
           onClick={handlePrev}
         >
           <KeyboardArrowLeftIcon sx={{ fontSize: 42 }} />
         </Button>
         <Button
+          id="nextButton"
           sx={{ backgroundColor: "transparent", color: "#FFF" }}
           onClick={handleNext}
         >

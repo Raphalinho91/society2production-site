@@ -22,7 +22,10 @@ export default function Footer() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <IconButton sx={{ color: "#FFF", transition: "all 0.3s ease" }}>
+        <IconButton
+          id="insta"
+          sx={{ color: "#FFF", transition: "all 0.3s ease" }}
+        >
           <InstagramIcon sx={{ fontSize: "35px" }} />
         </IconButton>
       </a>
@@ -31,7 +34,10 @@ export default function Footer() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <IconButton sx={{ color: "#f15726", transition: "all 0.3s ease" }}>
+        <IconButton
+          id="tiktok"
+          sx={{ color: "#f15726", transition: "all 0.3s ease" }}
+        >
           <PiTiktokLogo style={{ fontSize: "35px" }} />
         </IconButton>
       </a>

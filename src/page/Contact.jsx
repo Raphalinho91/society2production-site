@@ -199,6 +199,7 @@ export default function Contact({ price }) {
           }}
         >
           <TextField
+            id="email"
             label="Email"
             variant="outlined"
             type="email"
@@ -207,6 +208,7 @@ export default function Contact({ price }) {
             onChange={(e) => setEmail(e.target.value)}
           />
           <TextField
+            id="name"
             label="Prénom et Nom"
             variant="outlined"
             type="text"
@@ -215,6 +217,7 @@ export default function Contact({ price }) {
             onChange={(e) => setName(e.target.value)}
           />
           <TextField
+            id="place"
             label="Lieux du shooting"
             variant="outlined"
             type="text"
@@ -227,6 +230,7 @@ export default function Contact({ price }) {
           />
           <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="fr">
             <DateTimePicker
+              id="date"
               label="Date et Heure"
               value={date}
               onChange={(newValue) => setDate(newValue)}
@@ -234,6 +238,7 @@ export default function Contact({ price }) {
             />
           </LocalizationProvider>
           <FormControl
+            id="tarif"
             variant="outlined"
             sx={{ width: { xs: "90%", md: "80%" }, ...textfieldStyle }}
           >
@@ -263,6 +268,7 @@ export default function Contact({ price }) {
             {textInfo()}
           </Typography>
           <TextField
+            id="message"
             label="Décrivez le shooting que vous voulez"
             variant="outlined"
             type="text"
@@ -276,6 +282,7 @@ export default function Contact({ price }) {
             onChange={(e) => setMessage(e.target.value)}
           />
           <Button
+            type="submit"
             variant="contained"
             onClick={handleSendMessage}
             sx={{ backgroundColor: "#e1410f", fontWeight: "bold" }}

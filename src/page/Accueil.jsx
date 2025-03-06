@@ -84,6 +84,7 @@ export default function Accueil() {
       >
         <Box sx={{ display: "flex", ml: 2 }}>
           <Button
+            id="go-to-accueil"
             variant="contained"
             href="#accueil"
             sx={{
@@ -103,6 +104,7 @@ export default function Accueil() {
         </Box>
         <Box sx={{ display: { xs: "none", md: "flex" }, mr: 2, gap: 2 }}>
           <Button
+            id="go-to-aboutMe"
             variant="contained"
             href="#aboutMe"
             sx={{
@@ -115,6 +117,7 @@ export default function Accueil() {
             Qui nous sommes ?
           </Button>
           <Button
+            id="go-to-price"
             variant="contained"
             href="#price"
             sx={{
@@ -127,6 +130,7 @@ export default function Accueil() {
             Nos prix
           </Button>
           <Button
+            id="go-to-contact"
             variant="contained"
             href="#contact"
             sx={{

@@ -97,6 +97,7 @@ export default function Price({ setPrice }) {
             }}
           >
             <Button
+              id="tarif-1"
               href="#contact"
               onClick={() => setPrice("essentiel")}
               variant="contained"
@@ -173,6 +174,7 @@ export default function Price({ setPrice }) {
             }}
           >
             <Button
+              id="tarif-2"
               href="#contact"
               onClick={() => setPrice("etudiant")}
               variant="contained"
@@ -249,6 +251,7 @@ export default function Price({ setPrice }) {
             }}
           >
             <Button
+              id="tarif-3"
               href="#contact"
               onClick={() => setPrice("anniversaire")}
               variant="contained"
@@ -326,6 +329,7 @@ export default function Price({ setPrice }) {
             }}
           >
             <Button
+              id="tarif-4"
               href="#contact"
               onClick={() => setPrice("famille")}
               variant="contained"
