@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import IMAGE1 from "../image-portrait/image1.jpeg";
@@ -10,6 +10,7 @@ import IMAGE4 from "../image-portrait/image4.jpeg";
 import IMAGE5 from "../image-portrait/image5.jpeg";
 import IMAGE6 from "../image-portrait/image6.jpeg";
 import IMAGE7 from "../image-portrait/image7.jpeg";
+
 const images = [IMAGE1, IMAGE2, IMAGE3, IMAGE4, IMAGE5, IMAGE6, IMAGE7];
 const texts = [
   "2SOCIETY, c’est bien plus qu’une équipe, c’est une famille unie par une vision commune.",
@@ -20,6 +21,7 @@ const texts = [
   "Aujourd’hui, nous nous concentrons principalement sur la photographie, un domaine qui nous permet d’exprimer notre créativité et de raconter des histoires à travers l’image.",
   "Mais ce n’est qu’un début. Notre ambition ne connaît pas de limites, et nous continuerons à évoluer pour vous proposer toujours plus et toujours mieux.",
 ];
+
 const positions = [
   "center",
   "left2",
@@ -44,20 +46,44 @@ export default function AboutMe() {
   const [positionIndex, setPositionIndex] = useState([0, 1, 2, 3, 4, 5, 6]);
   const [textIndex, setTextIndex] = useState(0);
 
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
+
   const handlePrev = () => {
-    setPositionIndex((prevIndex) => {
-      const newIndex = prevIndex.map((index) => (index - 1 + 7) % 7);
-      return newIndex;
-    });
+    setPositionIndex((prevIndex) =>
+      prevIndex.map((index) => (index - 1 + 7) % 7)
+    );
     setTextIndex((prev) => (prev - 1 + texts.length) % texts.length);
   };
 
   const handleNext = () => {
-    setPositionIndex((prevIndex) => {
-      const newIndex = prevIndex.map((index) => (index + 1) % 7);
-      return newIndex;
-    });
+    setPositionIndex((prevIndex) => prevIndex.map((index) => (index + 1) % 7));
     setTextIndex((prev) => (prev + 1) % texts.length);
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const distance = touchStartX.current - touchEndX.current;
+
+    const minSwipeDistance = 50; // ajustable
+
+    if (distance > minSwipeDistance) {
+      handleNext(); // swipe gauche → image suivante
+    } else if (distance < -minSwipeDistance) {
+      handlePrev(); // swipe droite → image précédente
+    }
+
+    // reset
+    touchStartX.current = null;
+    touchEndX.current = null;
   };
 
   return (
@@ -78,6 +104,9 @@ export default function AboutMe() {
       }}
     >
       <Box
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
         sx={{
           position: "relative",
           width: "100%",
