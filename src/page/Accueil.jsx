@@ -50,9 +50,41 @@ export default function Accueil() {
     next.addEventListener("click", nextSlide);
     prev.addEventListener("click", prevSlide);
 
+    // Gestion du swipe
+    let startX = 0;
+    let endX = 0;
+
+    const handleTouchStart = (e) => {
+      startX = e.touches[0].clientX;
+    };
+
+    const handleTouchMove = (e) => {
+      endX = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = () => {
+      const deltaX = endX - startX;
+
+      if (Math.abs(deltaX) > 50) {
+        if (deltaX < 0) {
+          nextSlide(); // swipe gauche
+        } else {
+          prevSlide(); // swipe droite
+        }
+      }
+    };
+
+    slider.addEventListener("touchstart", handleTouchStart);
+    slider.addEventListener("touchmove", handleTouchMove);
+    slider.addEventListener("touchend", handleTouchEnd);
+
     return () => {
       next.removeEventListener("click", nextSlide);
       prev.removeEventListener("click", prevSlide);
+
+      slider.removeEventListener("touchstart", handleTouchStart);
+      slider.removeEventListener("touchmove", handleTouchMove);
+      slider.removeEventListener("touchend", handleTouchEnd);
     };
   }, []);
 
