@@ -1,8 +1,6 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { useState, useRef } from "react";
-import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import IMAGE1 from "../image-portrait/image1.jpeg";
 import IMAGE2 from "../image-portrait/image2.jpeg";
 import IMAGE3 from "../image-portrait/image3.jpeg";
@@ -48,6 +46,9 @@ export default function AboutMe() {
 
   const touchStartX = useRef(null);
   const touchEndX = useRef(null);
+  const mouseStartX = useRef(null);
+  const mouseEndX = useRef(null);
+  const isDragging = useRef(false);
 
   const handlePrev = () => {
     setPositionIndex((prevIndex) =>
@@ -73,17 +74,48 @@ export default function AboutMe() {
     if (!touchStartX.current || !touchEndX.current) return;
     const distance = touchStartX.current - touchEndX.current;
 
-    const minSwipeDistance = 50; // ajustable
+    const minSwipeDistance = 50;
 
     if (distance > minSwipeDistance) {
-      handleNext(); // swipe gauche → image suivante
+      handleNext();
     } else if (distance < -minSwipeDistance) {
-      handlePrev(); // swipe droite → image précédente
+      handlePrev();
     }
 
-    // reset
     touchStartX.current = null;
     touchEndX.current = null;
+  };
+
+  const handleMouseDown = (e) => {
+    mouseStartX.current = e.clientX;
+    isDragging.current = true;
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging.current) return;
+    mouseEndX.current = e.clientX;
+  };
+
+  const handleMouseUp = () => {
+    if (
+      !isDragging.current ||
+      mouseStartX.current === null ||
+      mouseEndX.current === null
+    )
+      return;
+
+    const distance = mouseStartX.current - mouseEndX.current;
+    const minSwipeDistance = 50;
+
+    if (distance > minSwipeDistance) {
+      handleNext();
+    } else if (distance < -minSwipeDistance) {
+      handlePrev();
+    }
+
+    mouseStartX.current = null;
+    mouseEndX.current = null;
+    isDragging.current = false;
   };
 
   return (
@@ -92,7 +124,7 @@ export default function AboutMe() {
       sx={{
         display: "flex",
         width: "100%",
-        minHeight: { xs: "100vh", sm: "95vh" },
+        minHeight: "100vh",
         backgroundColor: "#121212",
         color: "#FFF",
         position: "relative",
@@ -107,25 +139,29 @@ export default function AboutMe() {
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
         sx={{
           position: "relative",
           width: "100%",
-          height: "60vh",
+          height: "70vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          cursor: "grab",
         }}
       >
         {images.map((image, index) => (
-          <motion.img
+          <motion.div
             key={index}
-            src={image}
-            alt={`Image ${index + 1}`}
             style={{
               borderRadius: "12px",
               width: "340px",
               height: "510px",
               position: "absolute",
+              backgroundImage: `url(${image})`,
             }}
             initial="center"
             animate={positions[positionIndex[index]]}
@@ -152,31 +188,6 @@ export default function AboutMe() {
           {texts[textIndex]}
         </Typography>
       </motion.div>
-
-      <Box
-        sx={{
-          display: "flex",
-          position: "absolute",
-          bottom: { xs: 30, sm: 20 },
-          gap: 2,
-          zIndex: 1000,
-        }}
-      >
-        <Button
-          id="prevButton"
-          sx={{ backgroundColor: "transparent", color: "#FFF" }}
-          onClick={handlePrev}
-        >
-          <KeyboardArrowLeftIcon sx={{ fontSize: 42 }} />
-        </Button>
-        <Button
-          id="nextButton"
-          sx={{ backgroundColor: "transparent", color: "#FFF" }}
-          onClick={handleNext}
-        >
-          <KeyboardArrowRightIcon sx={{ fontSize: 42 }} />
-        </Button>
-      </Box>
     </Box>
   );
 }

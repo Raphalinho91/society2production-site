@@ -74,7 +74,7 @@
 }
 /* 260px ++ a chaque fois */
 
-.buttonsLandscape {
+/* .buttonsLandscape {
   position: absolute;
   bottom: 15px;
   display: flex;
@@ -109,7 +109,7 @@
 
 .buttonsLandscape span:active {
   opacity: 0.5;
-}
+} */
 
 .contentLandscape {
   position: relative;
@@ -146,7 +146,7 @@
 @media (max-width: 900px) {
   .sliderLandscape {
     position: absolute;
-    inset: 40px 40px 200px 40px;
+    inset: 80px 40px 200px 40px;
   }
   .sliderLandscape .itemLandscape {
     width: 100px;
